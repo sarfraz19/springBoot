@@ -1,0 +1,134 @@
+###from start to creating a webapplication ###
+POJO vs java beans
+POJO - plain old Java object
+
+-> the pojo and java beans are similar in kind but the java beans has the serializer, which kind of converts to machine code
+
+-------------------------------------
+pojo - base of spring boot //bellow are the terms//
+-------------------------------------
+1) class is public 
+2) properties are private
+3) default constructor
+4) public setter & getter methods
+
+=====================================
+java bean
+=====================================
+it has the 1 to 4 from above 
+5) java bean object can be serialized
+
+-------------------------------------------
+spring uses singleton design pattern so the objects gets created only once
+and how many times you call it or not call it will initialize only one the 
+classes
+================
+when two classes are dependent then @autowired is used at the time of 
+creation 
+================
+we can even give names to the class thats in spring database in 
+@Component("Name_here")
+then inside the calling class put 
+@Autowired
+@Qualifier("Name_here")
+
+===============================
+Spring MVC(model, view, controller)
+===============================
+client ---request--> web.xml ---request--> DispacherServlet(by spring boot)
+the DispacherServlet is by Spring boot
+based on the request, request forward -> login
+				     -> logout
+				     -> ADD
+				     -> MULTIPLICATION
+
+@Controller - this should be used to map on top of the controller
+and there should be a file where the paths are defined when a request comes
+by the user so that it forwards to the right path
+
+when the users ---send reqest--> DispacherServlet ---@controller_XMLfile--> data & view name
+
+----------------
+in cmd : netstat -ao |find /i "listening" // to see what all ports are running
+to stop the process: Taskkill /F /IM 12704 //mention the correct process ID (12704)
+
+//**the above if for the issue of port not available**//
+
+the output .jsp java file cannot be compiled hence 
+go to 
+--> mvnrepo 
+--> search "tomcat jasper"
+--> click according to the version of tomcat server
+--> copy the code and put in dependency section of "POM file"
+reson for using this - it is to say that the linked jsp file has the source and hence consider it as a
+page to display the content
+
+
+
+
+
+
+
+POJO vs java beans
+POJO - plain old Java object
+
+-> the pojo and java beans are similar in kind but the java beans has the serializer, which kind of converts to machine code
+
+-------------------------------------
+pojo - base of spring boot //bellow are the terms//
+-------------------------------------
+1) class is public 
+2) properties are private
+3) default constructor
+4) public setter & getter methods
+
+=====================================
+java bean
+=====================================
+it has the 1 to 4 from above 
+5) java bean object can be serialized
+
+-------------------------------------------
+spring uses singleton design pattern so the objects gets created only once
+and how many times you call it or not call it will initialize only one the 
+classes
+================
+when two classes are dependent then @autowired is used at the time of 
+creation 
+================
+we can even give names to the class thats in spring database in 
+@Component("Name_here")
+then inside the calling class put 
+@Autowired
+@Qualifier("Name_here")
+
+===============================
+Spring MVC(model, view, controller)
+===============================
+client ---request--> web.xml ---request--> DispacherServlet(by spring boot)
+the DispacherServlet is by Spring boot
+based on the request, request forward -> login
+				     -> logout
+				     -> ADD
+				     -> MULTIPLICATION
+
+@Controller - this should be used to map on top of the controller
+and there should be a file where the paths are defined when a request comes
+by the user so that it forwards to the right path
+
+when the users ---send reqest--> DispacherServlet ---@controller_XMLfile--> data & view name
+
+----------------
+in cmd : netstat -ao |find /i "listening" // to see what all ports are running
+to stop the process: Taskkill /F /IM 12704 //mention the correct process ID (12704)
+
+//**the above if for the issue of port not available**//
+
+the output .jsp java file cannot be compiled hence 
+go to 
+--> mvnrepo 
+--> search "tomcat jasper"
+--> click according to the version of tomcat server
+--> copy the code and put in dependency section of "POM file"
+reson for using this - it is to say that the linked jsp file has the source and hence consider it as a
+page to display the content
