@@ -132,3 +132,117 @@ go to
 --> copy the code and put in dependency section of "POM file"
 reson for using this - it is to say that the linked jsp file has the source and hence consider it as a
 page to display the content
+
+==========================
+23 DEC 2019
+==========================
+
+application.properties - this file is used for configurations
+
+we can set the directories in prefixes and the file extensions in the suffixes folder
+
+the data can be sent over the url and it can be printed in console 
+-> HttpServletRequest req = include it in the home 
+-> String name = req.getParameter("name"); = name of the parameter you have given in browser
+
+===
+1
+===
+creating a session to pass the values to the HTML page
+-> //creating session
+   HttpSession session = req.getSession();
+-> declaring a variable and bellow sets the value to it
+
+-> //setting session value
+   session.setAttribute("name", name);
+
+====================
+Servlet - server component //let means component
+====================
+
+
+insead of using above we can us 
+inside the class braces 
+//////////////////////////////////
+public String home(String name, HttpSession session) - to get the session values
+//////////////////////////////////
+-> when we use different name in the browser and point it in local we have to use @Requestparam
+------
+in browser
+------
+
+http://localhost:8080/home?name=sarf
+
+------
+in local
+------
+public String home(@RequestParam("name") String myname, HttpSession session)
+
+#####################################
+not moving from session to model view
+#####################################
+
+public string home(@RequestParam("name") String myname)
+
+---> //instead of string use ModelAndView
+
+public ModelAndView home(@RequestParam("name") String myname)
+
+---> //now create am object 
+
+ModelAndView mv = new ModelAndView();
+
+// this is used to add object to the frontend 
+
+mv.addObject("name",myname);
+
+// to specify which view to call 
+
+mv.setViewName("home");
+
+##############################
+#			     #
+#      web | JPA | MVC       #
+#			     #
+##############################
+we are using -> h2 database
+             -> JPA
+when proxy is enabled the maven does not download properly hence on the project 
+-> right click
+-> maven
+-> update
+-> click the check box of force update & click OK
+now things will run properly
+
+not to make a embedded H2 server put the following in application.properties file
+
+#enable cosole for database
+spring.h2.console.enabled=true
+#saying the database platform
+spring.datasource.platform=h2
+#saying the accessing method 
+spring.datasource.url=jdbc:h2:mem:sarfraz
+
+#put @Entity to make database know to create a database like the following and also mention the @Id so that it creates the 
+database
+
+@Entity
+public class Alien {
+	
+	@Id
+	private int aid;
+	private String aname;
+	public int getAid() {
+		return aid;
+
+------------------------------
+to insert values into the database
+put 
+-> create data.sql under src/main/resources
+-> insert into alien values (101, 'sarfraz');
+
+we can pass the values we have created form in jsp and when submit is pressed it passes to the controller
+-> now to pass to the database we have to add interface 
+-> and we extend it with crud operations using rest api
+
+repo.save(alien) - its important one to save the things	
